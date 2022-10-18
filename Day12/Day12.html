@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form field</title>
+    <link rel="stylesheet" href="Day12.css">
+</head>
+
+<body>
+    <div class="section">
+        <h1>Dynamic Form field</h1>
+        <div id="survey_options">
+            <input type="text" name="survey_options[]" class="survey_options" size="50" placeholder="Name">
+            <input type="text" name="survey_options[]" id="survey_options" size="50" placeholder="Email">
+            <input type="text" name="survey_options[]" id="survey_options" size="50" placeholder="Another Field">
+        </div>
+        <div class="controls">
+            <a href="#" id="add_fields">Add</a>
+            <a href="#" id="remove_fields">Remove</a>
+        </div>
+    </div>
+    <script src="Day12.js"></script>
+</body>
+
+</html>

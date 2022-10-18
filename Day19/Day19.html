@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Day19.css">
+    <title>Counter Timer</title>
+    <link rel="shortcut icon" href="/Day19/hourglass.png" type="image/x-icon">
+</head>
+
+<body>
+    <h1>Counter Timer</h1>
+    <div id="container">
+        <p id="hour-label" class="label">Hours</p>
+        <p id="min-label" class="label">Minutes</p>
+        <p id="sec-label" class="label">Seconds</p>
+        <input type="number" id="hour" max="99" min="0" value="0" class="time">
+        <p id="p1" class="semicolon">:</p>
+        <input type="number" id="minute" max="60" min="0" value="0" class="time">
+        <p id="p2" class="semicolon">:</p>
+        <input type="number" id="sec" max="60" min="0" value="0" class="time">
+        <button id="start" class="btn">Start</button>
+        <button id="reset" class="btn">Reset</button>
+    </div>
+    <footer>
+        <p>&#x3c; &#47; &#x3e with ❤ with 
+            Kishor Chaudhary
+        </p>
+        <p>#30DaysOfJavaScript</p>
+    </footer>
+    <script src="Day19.js"></script>
+</body>
+
+</html>

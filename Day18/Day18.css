@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "sans";
+    src: url(/Day18/font/sans.ttf);
+}
+
+body {
+    background-color: #19172e;
+    color: white;
+    font-family: "sans";
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h2 {
+    position: absolute;
+    top: 0;
+    padding-top: 100px;
+    font-size: 2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    margin: 0;
+}
