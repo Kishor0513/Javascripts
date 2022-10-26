@@ -1,7 +1,18 @@
+body{
+    text-align: center;
+    align-items: center;
+    
+}
+
+
+
 div.container{
     border: solid 2px black;
     padding: 14px;
     margin: 14px;
-    
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
     
 }
