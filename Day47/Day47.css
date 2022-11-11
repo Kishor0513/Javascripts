@@ -1,0 +1,82 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    overflow: hidden;
+    min-height: 100vh;
+}
+.mee{
+    position: absolute;
+    color: #19172e;
+    font-size: 30px ;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin-top: 5px;
+    padding-top: 5px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+}
+h1{
+    font-size: 20px;
+}
+.content-table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9rem;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.content-table thead tr{
+    background-color: #19172e;
+    color: white;
+    text-align: left;
+}
+.content-table th,
+.content-table td{
+    padding: 12px 15px;
+}
+.content-table tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+.content-table tbody tr:hover{
+    background-color: #fff;
+}
+.content-table tbody tr:nth-last-of-type{
+    border-bottom: 2px solid #19172e;
+}
+.check{
+    font-size: 20px;
+    text-align: center;
+}
+.check .present {
+    color: green;
+    cursor: pointer;
+}
+.check .absent {
+    color: red;
+    cursor: pointer;
+}
+footer{
+    color: #19172e;
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+}

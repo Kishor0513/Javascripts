@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Presence</title>
+    <script src="https://kit.fontawesome.com/9361e3694f.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="Favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="Day47.css">
+</head>
+<body>
+    <h1 class="mee">Attendence</h1>
+    <div class="wrapper">
+        <div>
+            <h1>Click the Presence icon to toggle Presence</h1>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Point</th>
+                        <th>Team</th>
+                        <th>Presence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Fernaldo Alonso</td>
+                        <td>88,110</td>
+                        <td>dcode</td>
+                        <td class="check"><i class="fa-solid fa-check present" onclick="toggle(this)"></i></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Lewis Hamilton</td>
+                        <td>75,300</td>
+                        <td>Student</td>
+                        <td class="check"><i class="fa-solid fa-xmark absent" onclick="toggle(this)"></i></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Max Verstappen</td>
+                        <td>50,500</td>
+                        <td>Teacher</td>
+                        <td class="check"><i class="fa-solid fa-xmark absent" onclick="toggle(this)"></i></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Sergio Perez</td>
+                        <td>90,210</td>
+                        <td>Chef</td>
+                        <td class="check"><i class="fa-solid fa-xmark absent" onclick="toggle(this)"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <p>&#x3c; &#47; &#x3e; with ♥ By Kishor Chaudhary</p>
+        <p>#100DaysOfJavaScript</p>
+    </footer>
+    <script src="Day47.js"></script>
+</body>
+</html>
