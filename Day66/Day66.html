@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostMan Clone</title>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prism.css">
+    <link rel="stylesheet" href="Day66.css">
+</head>
+<body>
+    <!-- nav bar  -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a href="Day66.html" class="navbar-brand">GET-POST REQUEST</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAttMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a href="Day66.html" class="nav-link active" aria-current="page">Home</a>
+                    <a href="https://github.com/Kishor0513" class="nav-link">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- alert if the url is empty  -->
+    <div id="failure-alert" class="url-alert alert alert-danger alert-dismissible shake show" role="alert">
+        <strong>Hey User !! </strong>Please Make sure you have filled the Type or Paste The URL (It should'nt be Empty).
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <!-- main heading  -->
+    <div class="container">
+        <h2 class="my-3" id="heading">Get/Post Your Request </h2>
+    </div>
+    <!-- main container for all functions (selction,getting,posting etc,..)  -->
+    <div class="container">
+        <!-- url pasting section  -->
+        <div class="form-group row">
+            <label for="url" class="col-sm 2 col-form-label">Enter Your URL</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="url" placeholder="Type or Paste The URL">
+            </div>
+        </div>
+        <!-- radio button for selection of getting or posting requestType  -->
+        <fieldset class="form-group my-4">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Request Type</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="requestType" id="getRequest" value="GET" checked>
+                        <label for="getRequest" class="form-check-label">GET</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="requestType" id="postRequest" value="POST">
+                        <label for="postRequest" class="form-check-label">POST</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <!-- main content type box for json and selection of custom parameters  -->
+        <fieldset class="form-group my-4">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Content Type</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <label for="jsonRadio" class="form-check-label">JSON</label>
+                        <input type="radio" class="form-check-input" name="contentType" id="jsonRadio" value="json" checked>
+                    </div>
+                    <div class="form-check">
+                        <label for="customRadio" class="form-check-label">Custom Parameters</label>
+                        <input type="radio" class="form-check-input" name="contentType" id="customRadio" value="custom">
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <!-- this is section where if the user choose Custom Parameters then this section will appear otherwise it will be hidden  -->
+        <div id="parameter-box">
+            <div class="form-group row">
+                <label for="paramKey" class="form-sm-2 col-form-label">Parameter 1</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="paramKey1" placeholder="Key Of Parameter 1">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="paramValue1"
+                    placeholder="Value Of Parameter 1">
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary" id="addBtn">Add</button>
+                </div>
+            </div>
+        </div>
+        <div class="addMoreParameters"></div>
+        <!-- if the user clicks on json then this option wll shown to the user instead of Custom Parameters;  -->
+        <div class="my-3" id="requestJsonBox">
+            <div class="form-group row">
+                <label for="json-box" class="col-sm-2 col-form-label">Enter JSON</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="json-box" rows="3" placeholder="Enter /Paste Your JSON"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- submit button to fetch the data  -->
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button class="btn btn-primary" id="submit-btn">Submit</button>
+            </div>
+        </div>
+        <!-- section where we got the response after fetching the result  -->
+        <div class="my-3" id="responseJsonBox">
+            <div class="form-group row">
+                <label for="response-box" class="col-sm-2 col-form-label">Response</label>
+                <div class="col-sm-10">
+                <!--           <textarea class="form-control" id="response-box" rows="3">
+                Your Response Is Displayed Here....</textarea> -->
+                <pre id="prismPre" class="language-javascript">
+                    <code id="response-box" class="language-javascript">Hey User, Please Wait a Minue We are fetching the Required Results. This May Take some Time!!</code>
+                </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&lt; / &gt; with ♥ by 
+            <a href="https://github.com/Kishor0513">Kishor Chaudhary</a>
+        </p>
+    </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+            crossorigin="anonymous"></script>
+    <script src="Day66.js"></script> 
+    <script src="prism.js"></script>       
+</body>
+</html>
