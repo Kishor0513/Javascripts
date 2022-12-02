@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Definition</title>
+    <link rel="shortcut icon" href="./images/word_definition.png" type="image/x-icon">
+    <link rel="stylesheet" href="Day68.css">
+    <script src="https://kit.fontawesome.com/9361e3694f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <audio src="" id="sound"></audio>
+    <div class="container">
+        <header>Word Definition</header>
+        <hr>
+        <div class="search">
+            <input type="text" placeholder="Search here..." required spellcheck="false">
+            <i class="fa fa-search"></i>
+            <span class="meterial-icons">close</span>
+        </div>
+        <p class="info-text"></p>
+        <ul>
+            <li class="word">
+                <div class="details">
+                    <p></p>
+                    <span></span>
+                </div>
+                <i class="fa fa-volume-up" class="volume" onclick="playSound()"></i>
+            </li>
+            <div class="content">
+                <li class="meaning">
+                    <div class="details">
+                        <p>Meaning</p>
+                        <span></span>
+                    </div>
+                </li>
+            </div>
+        </ul>
+    </div>
+    <script src="Day68.js"></script>
+</body>
+</html>
