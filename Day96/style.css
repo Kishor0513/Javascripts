@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+form {
+    width: 400px;
+    text-align: center;
+    padding: 20px 0px 0px 0;
+    border-radius: 4px;
+    box-shadow: 0 3px 4px #f1f1f1;
+    background-color: #fff;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: rgba(0, 0, 255, 0.315);
+    background: url(https://images.unsplash.com/photo-1607871583590-10131167f88b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80) no-repeat center;
+    background-size: cover;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 0 5px 10px 5px;
+}
+
+span {
+    font-size: 20px;
+    letter-spacing: 5px;
+    color: #000;
+}
+
+input {
+    padding: 10px 20px 10px 10px;
+    outline: none;
+    width: 90%;
+    border: 2px solid gray;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: inset 0 3px 4px cornflowerblue;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+button {
+    padding: 13px 1rem;
+    outline: none;
+    font-weight: bold;
+    border: none;
+    background-color: cadetblue;
+    color: #fff;
+    cursor: pointer;
+    text-transform: capitalize;
+    border-radius: 5px;
+    box-shadow: inset 0 3px 4px cornflowerblue;
+}
+
+#reset {
+    background-color: crimson;
+}
