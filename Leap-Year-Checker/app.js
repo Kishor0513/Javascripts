@@ -6,14 +6,14 @@ btn.addEventListener('click', function (e) {
 
     e.preventDefault();
 
-    if (input == '') {
+    if (input === '') {
         alert("Please enter a valid number");
     }
-    else if (input % 400 == 0 && input % 100 == 0) {
+    else if (input % 400 === 0 && input % 100 === 0) {
         result.innerText = `The enter number ${input} is leap year`;
     }
 
-    else if ((input % 4 == 0) && (input % 100 != 0)) {
+    else if ((input % 4 === 0) && (input % 100 !== 0)) {
         result.innerText = `The enter number ${input} is leap year`;
     }
     else {

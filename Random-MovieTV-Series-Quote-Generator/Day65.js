@@ -1,3 +1,9 @@
+const quote = document.getElementById("quote");
+const author = document.getElementById("author");
+const source = document.getElementById("source");
+const tweet = document.getElementById("tweet");
+const whatsapp = document.getElementById("whatsapp");
+
 const getNextQuote = async () => {
     var url = "https://raw.githubusercontent.com/msramalho/json-tv-quotes/master/quotes.json";
     const response = await fetch(url);

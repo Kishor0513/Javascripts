@@ -1,5 +1,4 @@
 var numSelected = null;
-var tileSelected = null;
 
 var errors = 0;
 
@@ -48,14 +47,14 @@ function setGame() {
         for (let c = 0; c < 9; c++) {
             let tile = document.createElement("div");
             tile.id = r.toString() + "-" + c.toString();
-            if (board[r][c] != "-") {
+            if (board[r][c] !== "-") {
                 tile.innerText = board[r][c];
                 tile.classList.add("tile-start");
             }
-            if (r == 2 || r == 5) {
+            if (r === 2 || r === 5) {
                 tile.classList.add("horizontal-line");
             }
-            if (c == 2 || c == 5) {
+            if (c === 2 || c === 5) {
                 tile.classList.add("vertical-line");
             }
             tile.addEventListener("click", selectTile);
@@ -66,7 +65,7 @@ function setGame() {
 }
 
 function selectNumber() {
-    if (numSelected != null) {
+    if (numSelected !== null) {
         numSelected.classList.remove("number-selected");
     }
     numSelected = this;
@@ -75,16 +74,16 @@ function selectNumber() {
 
 function selectTile() {
     if (numSelected) {
-        if (this.innerText != "") {
+        if (this.innerText !== "") {
             return;
         }
 
         // "0-0" "0-1" .. "3-1"
         let coords = this.id.split("-");
-        let r = parseInt(coords[0]);
-        let c = parseInt(coords[1]);
+        let r = parseInt(coords[0], 10);
+        let c = parseInt(coords[1], 10);
 
-        if (solution[r][c] == numSelected.id) {
+        if (solution[r][c] === numSelected.id) {
             this.innerText = numSelected.id;
         }
         else {

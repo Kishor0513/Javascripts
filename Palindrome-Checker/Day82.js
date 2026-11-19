@@ -1,20 +1,18 @@
+/* exported validatePalin, clearScreen */
 function validatePalin() {
-    string = document.getElementById("text").value;
+    const string = document.getElementById("text").value;
 
-    //to obtain total length of the wor or sentence
-    const len = string.length;
+    // to remove spaces from the accepted string, if there is any
+    const string1 = string.replace(/ /g, "");
 
-    // to remove spaces from the accepted string, if there is any 
-    let string1 = string.replace(/ /g, "");
-
-    let len1 = string1.length;
+    const len1 = string1.length;
 
     let string2 = "";
 
-    // to remove special characters 
+    // to remove special characters
     for (let j = 0; j < len1; j++) {
 
-        if ((string[j] >= 'a' && string1[j] <= 'z') || (string1[j] >= 'A' && string1[j] <= 'Z') || (string1[j] >= '0' && string1[j] <= '9')) {
+        if ((string1[j] >= 'a' && string1[j] <= 'z') || (string1[j] >= 'A' && string1[j] <= 'Z') || (string1[j] >= '0' && string1[j] <= '9')) {
             string2 = string2.concat(string1[j]);
         }
 
@@ -24,7 +22,7 @@ function validatePalin() {
     let len2 = string2.length;
 
     // to check for empty string 
-    if (string2 == "") {
+    if (string2 === "") {
         document.getElementById("result").innerHTML = "Please enter a valid string!";
     }
 
@@ -42,10 +40,10 @@ function validatePalin() {
                 flag = 0;
             }
         }
-        if (flag == 0) {
+        if (flag === 0) {
             document.getElementById("result").innerHTML = "It is not a palindrome.";
         }
-        else if (flag == 1) {
+        else if (flag === 1) {
             document.getElementById("result").innerHTML = "It is a palindrome.";
         }
     }

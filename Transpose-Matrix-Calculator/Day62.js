@@ -1,6 +1,6 @@
 
-button = document.getElementById('button');
-button.addEventListener('click', e => {
+const button = document.getElementById('button');
+button.addEventListener('click', () => {
     let ans = document.createElement('div');
     document.getElementById('matrix').appendChild(ans);
 
@@ -13,7 +13,7 @@ button.addEventListener('click', e => {
         arr[i] = [];
         for (; j < (i + 1) * n; j++) {
             let a = input[j];
-            if (a.value == "") {
+            if (a.value === "") {
                 alert("Enter the values in matrix!");
                 return;
             }

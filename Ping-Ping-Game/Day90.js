@@ -2,10 +2,11 @@ var ball = document.getElementById('ball');
 var rod1 = document.getElementById('rod1');
 var rod2 = document.getElementById('rod2');
 var rules = document.getElementById('rules');
-var container = document.getElementById('container');
 var body = document.querySelector('body');
 
 var color = ["orange", "aqua", "yellowgreen", "pink", "violet", "yellow", "lightgreen", "blanchedalmond", "lightsalmon"];
+let rod1X = 0;
+let rod2X = 0;
 
 const storeName = "PPName";
 const storeScore = "PPMaxScore";
@@ -148,7 +149,7 @@ window.addEventListener('keypress', function (event) {
                 if (ballY <= rod1Height) {
                     ballSpeedY = -ballSpeedY; // Reverses the direction
                     score++;
-                    var randColor = color[Math.floor(Math.random() * color.length)];
+                    const randColor = color[Math.floor(Math.random() * color.length)];
                     body.style.backgroundColor = randColor;
 
 
@@ -162,7 +163,7 @@ window.addEventListener('keypress', function (event) {
                 else if ((ballY + ballDia) >= (windowHeight - rod2Height)) {
                     ballSpeedY = -ballSpeedY; // Reverses the direction
                     score++;
-                    var randColor = color[Math.floor(Math.random() * color.length)];
+                    const randColor = color[Math.floor(Math.random() * color.length)];
                     body.style.backgroundColor = randColor;
 
 

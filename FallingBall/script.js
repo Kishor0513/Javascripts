@@ -24,7 +24,7 @@ function moveRight() {
 	}
 }
 document.addEventListener('keydown', (event) => {
-	if (both == 0) {
+	if (both === 0) {
 		both++;
 		if (event.key === 'ArrowLeft') {
 			interval = setInterval(moveLeft, 1);
@@ -34,7 +34,7 @@ document.addEventListener('keydown', (event) => {
 		}
 	}
 });
-document.addEventListener('keyup', (event) => {
+document.addEventListener('keyup', () => {
 	clearInterval(interval);
 	both = 0;
 });
@@ -50,7 +50,7 @@ var blocks = setInterval(function () {
 			window.getComputedStyle(holeLast).getPropertyValue('top')
 		);
 	}
-	if (blockLastTop < 400 || counter == 0) {
+	if (blockLastTop < 400 || counter === 0) {
 		var block = document.createElement('div');
 		var hole = document.createElement('div');
 		block.setAttribute('class', 'block');
@@ -102,7 +102,7 @@ var blocks = setInterval(function () {
 			}
 		}
 	}
-	if (drop == 0) {
+	if (drop === 0) {
 		if (characterTop < 480) {
 			character.style.top = characterTop + 2 + 'px';
 		}

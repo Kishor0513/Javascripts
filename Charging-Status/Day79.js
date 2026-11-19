@@ -28,9 +28,8 @@ const Setup = function () {
         let result = Math.round(level * 100);
         let dis = `${result}%`;
         batterypercent.innerHTML = dis;
-        let colorwidth = 160 * level;
 
-        if (battery.charing == true) {
+        if (battery.charging) {
             display.innerHTML = 'Connected'
             chargingAni.classList.remove('chargeshowR');
             chargingAni.classList.add('percent');

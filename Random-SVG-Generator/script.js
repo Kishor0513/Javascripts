@@ -8,20 +8,12 @@ function hashCode(name) {
     return Math.abs(hash);
 }
 
-function getModulus(num, max) {
-    return num % max;
-}
-
 function getDigit(number, ntn) {
     return Math.floor((number / Math.pow(10, ntn)) % 10);
 }
 
 function getBoolean(number, ntn) {
     return !(getDigit(number, ntn) % 2);
-}
-
-function getAngle(x, y) {
-    return (Math.atan2(y, x) * 180) / Math.PI;
 }
 
 function getUnit(number, range, index) {

@@ -1,8 +1,8 @@
+/* exported playSound */
 const container = document.querySelector(".container"),
-    searchInput = container.querySelector("input"),
-    sound = document.getElementById("sound");
-(infoText = container.querySelector(".info-text")),
-    (removeIcon = container.querySelector(".search span"));
+    searchInput = container.querySelector("input");
+const infoText = container.querySelector(".info-text");
+const removeIcon = container.querySelector(".search span");
 let audio;
 
 function data(result, word) {
@@ -11,9 +11,9 @@ function data(result, word) {
     } else {
         container.classList.add("active");
         let definitions = result[0].meanings[0].definitions[0];
-        phontetics = `${result[0].meanings[0].partOfSpeech}  /${result[0].phonetics[0].text}/`;
+        const phonetics = `${result[0].meanings[0].partOfSpeech}  /${result[0].phonetics[0].text}/`;
         document.querySelector(".word p").innerText = result[0].word;
-        document.querySelector(".word span").innerText = phontetics;
+        document.querySelector(".word span").innerText = phonetics;
         document.querySelector(".meaning span").innerText = definitions.definition;
         audio = new Audio(result[0].phonetics[0].audio);
     }
@@ -21,11 +21,6 @@ function data(result, word) {
 
 function playSound() {
     audio.play();
-}
-
-function search(word) {
-    fetchApi(word);
-    searchInput.value = word;
 }
 
 function fetchApi(word) {
@@ -42,7 +37,7 @@ function fetchApi(word) {
 
 searchInput.addEventListener("keyup", (e) => {
     let word = e.target.value.replace(/\s+/g, " ");
-    if (e.key == "Enter" && word) {
+    if (e.key === "Enter" && word) {
         fetchApi(word);
     }
 });

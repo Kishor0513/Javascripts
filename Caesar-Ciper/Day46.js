@@ -1,7 +1,8 @@
+/* exported main */
 
 function main(x) { // x identifies from which button call is being made: Encrypt or Decrypt
     var entry_text = document.getElementById('entry').value
-    var key_val = parseInt(document.getElementById('key').value) // Reading and storing both the inputs
+    var key_val = parseInt(document.getElementById('key').value, 10) // Reading and storing both the inputs
     key_val = key_val % 26
     if (x === 2) {
         key_val = (-1) * key_val  // If call is for Decrypt then key value entered becomes negative
@@ -10,7 +11,7 @@ function main(x) { // x identifies from which button call is being made: Encrypt
     for (var i = 0; i < entry_text.length; i++) {
         final_string = final_string + change(entry_text.charAt(i), key_val)
     }
-    out_ele = document.getElementById('output')
+    const out_ele = document.getElementById('output')
     out_ele.style.display = final_string === "" ? "none" : "flex"
     out_ele.innerHTML = final_string
 }

@@ -47,3 +47,6 @@ temp/
 # Package manager files
 package-lock.json
 yarn.lock
+
+# Visual Studio cache
+.vs/

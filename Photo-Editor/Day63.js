@@ -97,8 +97,8 @@ onload = function () {
                 alert('Incorrect dimension in input');
                 return;
             }
-            let ncols = parseInt(inp[0]);
-            let nrows = parseInt(inp[1]);
+            let ncols = parseInt(inp[0], 10);
+            let nrows = parseInt(inp[1], 10);
             if (isNaN(ncols) || isNaN(nrows)) {
                 alert('Input is not a proper Number');
                 return;

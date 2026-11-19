@@ -1,3 +1,4 @@
+/* global Stats, MousePositionMonitor */
 /* Please view in Chrome for best effects! :) */
 
 // Configure
@@ -24,7 +25,7 @@ window.requestAnimFrame = (function () {
         };
 })();
 
-window.addEventListener('load', function (event) {
+window.addEventListener('load', function () {
     var canvas = document.getElementById('c');
     var context = canvas.getContext('2d');
     var width, height;
@@ -45,7 +46,7 @@ window.addEventListener('load', function (event) {
 
     context.lineWidth = "hairline";
 
-    var resize = function (event) {
+    var resize = function () {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
     }; resize();
@@ -189,7 +190,8 @@ window.addEventListener('load', function (event) {
 
                             c1.a = c2.a = Math.floor(Math.map(distance, MAX_DISTANCE, 0, 0, 255));
 
-                            grd.addColorStop(0, c1), grd.addColorStop(1, c2);
+                            grd.addColorStop(0, c1);
+                            grd.addColorStop(1, c2);
 
                             context.strokeStyle = grd;
                         } else {
@@ -212,7 +214,7 @@ window.addEventListener('load', function (event) {
     };
 
     var loop = function () {
-        requestAnimFrame(loop);
+        window.requestAnimFrame(loop);
         stats.begin();
         render();
         stats.end();

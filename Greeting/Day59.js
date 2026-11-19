@@ -8,7 +8,7 @@ setInterval(() => {
     document.getElementById("day").innerHTML = dayFormat.format(date)
     document.getElementById("date").innerHTML = dateFormat.format(date)
     document.getElementById("time").innerHTML = timeFormat.format(date)
-    if (curHr != date.getHours()) {
+    if (curHr !== date.getHours()) {
         window.location.reload();
     }
 }, 500);

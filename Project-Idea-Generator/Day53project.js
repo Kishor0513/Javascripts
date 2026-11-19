@@ -1,3 +1,4 @@
+/* exported projects */
 let projects = [
     {
         "title": "Build Your Own Text Editor",

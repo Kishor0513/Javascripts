@@ -37,7 +37,7 @@ let pausemusic = () => {
 };
 
 play.addEventListener("click", () => {
-    if (isplaying == false) {
+    if (isplaying === false) {
         playmusic();
     } else {
         pausemusic();
@@ -50,7 +50,7 @@ const loadsong = (songs) => {
     audio.src = "Music/" + songs.name + ".mp3";
     img.src = "images/" + songs.name + ".jpg";
 }
-songindex = 0;
+let songindex = 0;
 const nextsong = () => {
     songindex = (songindex + 1) % songs.length;
     loadsong(songs[songindex]);

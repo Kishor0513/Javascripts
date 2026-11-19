@@ -1,3 +1,4 @@
+/* exported calculate */
 function calculate() {
     let p = document.getElementById('p').value;
     let c = document.getElementById('c').value;

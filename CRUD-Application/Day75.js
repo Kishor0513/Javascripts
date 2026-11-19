@@ -1,9 +1,10 @@
+/* exported getData, del, update, updateProduct, search */
 var productName = document.getElementById('productName');
 var productCategory = document.getElementById('productCategory');
 var productPrice = document.getElementById('productPrice');
 var productDescription = document.getElementById('ProductDescription');
 var products = [];
-if (localStorage.getItem('products', products) == null) {
+if (localStorage.getItem('products', products) === null) {
     products = [];
 }
 else {

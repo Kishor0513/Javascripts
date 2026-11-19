@@ -1,3 +1,7 @@
+const board = document.getElementById('board');
+const scoreBox = document.getElementById('scoreBox');
+const hiscoreBox = document.getElementById('hiscoreBox');
+
 let inputDir = { x: 0, y: 0 };
 const moveSound = new Audio('audio/move.mp3');
 const foodSound = new Audio('audio/food.mp3');
@@ -5,8 +9,11 @@ const gameOverSound = new Audio('audio/gameover.mp3');
 let speed = 5;
 let lastPaintTime = 0;
 let snakeArr = [{ x: 13, y: 15 }]
-food = { x: 6, y: 7 };
+let food = { x: 6, y: 7 };
 let score = 0;
+let hiscoreval = 0;
+let snakeElement;
+let foodElement;
 // Game functions
 function main(ctime) {
     window.requestAnimationFrame(main);
@@ -39,7 +46,7 @@ function gameEngine() {
         alert("Game Over. Press Any Key To Continue");
         snakeArr = [{ x: 13, y: 15 }];
         score = 0;
-        scoreBox.innerHTML = 'Score' + score;
+        scoreBox.innerHTML = 'Score: ' + score;
     }
     if (snakeArr[0].x === food.x && snakeArr[0].y === food.y) {
         foodSound.play();
@@ -91,7 +98,7 @@ if (hiscore === null) {
     localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
 } else {
     hiscoreval = JSON.parse(hiscore);
-    hiscoreBox.innerHTML = "Hi Score: " + hiscore;
+    hiscoreBox.innerHTML = "Hi Score: " + hiscoreval;
 }
 
 window.requestAnimationFrame(main);

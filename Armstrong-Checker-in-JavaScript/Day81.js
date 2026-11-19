@@ -8,20 +8,17 @@ let filterInput;
 
 // A utility function that returns true if x is perfect square
 function Armstrong(number) {
-    var flag, remainder, addition = 0;
+    const original = Number(number);
+    let remaining = original;
+    let addition = 0;
 
-    flag = number;
-    while (number > 0) {
-        remainder = number % 10;
+    while (remaining > 0) {
+        const remainder = remaining % 10;
         addition = addition + remainder * remainder * remainder;
-        number = parseInt(number / 10);
+        remaining = Math.floor(remaining / 10);
     }
-    if (addition == flag) {
-        return true;
-    }
-    else {
-        return false;
-    }
+
+    return addition === original;
 }
 
 checkBtn.addEventListener("click", () => {
@@ -33,7 +30,7 @@ checkBtn.addEventListener("click", () => {
     //     return infoTxt.innerHTML = `Enter a valid input`
     // }
     // else{
-    if (Armstrong(n) == true) {
+    if (Armstrong(n)) {
         return infoTxt.innerHTML = `Yes, <span>'${txtInput.value}'</span> is an Armstrong number`;
     }
     infoTxt.innerHTML = `No, <span>'${txtInput.value}'</span> is not an Armstrong number`;

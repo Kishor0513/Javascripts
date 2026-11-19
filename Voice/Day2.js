@@ -43,7 +43,6 @@ speechButton.addEventListener("click", e => {
         if (!synth.speaking && !isSpeaking) {
           isSpeaking = true;
           speechButton.innerText = "Convert To Speech";
-        } else {
         }
       }, 500);
       if (isSpeaking) {

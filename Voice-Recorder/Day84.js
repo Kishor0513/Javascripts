@@ -6,8 +6,8 @@ class VoiceRecorder{
             console.log("getUserMedia is not supported on your browser")
         }
 
-        this.mediaRecorder
-        this.stream
+        this.mediaRecorder = null
+        this.stream = null
         this.chunks = []
         this.isRecording = false
         
@@ -48,7 +48,7 @@ class VoiceRecorder{
         this.chunks.push(e.data)
     }
 
-    onMediaRecorderStop(e) {
+    onMediaRecorderStop() {
         const blob = new Blob(this.chunks, { 'type': 'audio.ogg; codecs=opus' })
         const audioURL = window.URL.createObjectURL(blob)
         this.playerRef.src = audioURL

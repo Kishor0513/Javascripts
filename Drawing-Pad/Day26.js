@@ -1,3 +1,5 @@
+/* exported setup, draw, mousePressed */
+/* global createCanvas, background, noFill, mouseIsPressed, mouseX, mouseY, beginShape, stroke, strokeWeight, vertex, endShape */
 const colorInput = document.getElementById('color');
 const weight = document.getElementById('weight');
 const clear = document.getElementById('clear');

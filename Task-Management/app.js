@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
     var dragSrcEl = null;
     function handleDragStart(e) {
         this.style.opacity = '0.1';
@@ -14,23 +14,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
         e.dataTransfer.dropEffect = 'move';
         return false;
     }
-    function handleDragEnter(e) {
+    function handleDragEnter() {
         this.classList.add('task-hover');
     }
-    function handleDragLeave(e) {
+    function handleDragLeave() {
         this.classList.remove('task-hover');
     }
     function handleDrop(e) {
         if (e.stopPropagation) {
             e.stopPropagation(); // stops the browser from redirecting.  
         }
-        if (dragSrcEl != this) {
+        if (dragSrcEl !== this) {
             dragSrcEl.innerHTML = this.innerHTML;
             this.innerHTML = e.dataTransfer.getData('text/html');
         }
         return false;
     }
-    function handleDragEnd(e) {
+    function handleDragEnd() {
         this.style.opacity = '1';
         this.style.border = 0;
         items.forEach(function (item) {

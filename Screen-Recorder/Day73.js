@@ -26,7 +26,7 @@ function startRecording(stream, lengthInMS) {
     });
 
     let recorded = wait(lengthInMS).then(
-        () => recorder.state == "recording" && recorder.stop()
+        () => recorder.state === "recording" && recorder.stop()
     );
 
     return Promise.all([
@@ -35,7 +35,7 @@ function startRecording(stream, lengthInMS) {
     ])
         .then(() => data);
 }
-function stop(stream) {
+function stopStream(stream) {
     stream.getTracks().forEach(track => track.stop());
 }
 startButton.addEventListener("click", function () {
@@ -60,5 +60,5 @@ startButton.addEventListener("click", function () {
         .catch(log);
 }, false);
 stopButton.addEventListener("click", function () {
-    stop(preview.srcObject);
+    stopStream(preview.srcObject);
 }, false);

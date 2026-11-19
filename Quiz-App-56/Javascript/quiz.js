@@ -1,3 +1,4 @@
+/* global quizOne, quizTwo, quizThree */
 let id = (id) => document.getElementById(id);
 let classes = (classes) => document.getElementsByClassName(classes);
 let queryselector = (query) => document.querySelector(query);
@@ -194,9 +195,15 @@ let displayInitialData = (quizChosen) => {
 
 
 window.addEventListener('load', () => {
-    // reading parameters
     const params = (new URL(document.location)).searchParams;
     const quizChosen = params.get('quiz');
-    // eval --> converting string to variable
-    displayInitialData(eval(quizChosen));
+    const quizzes = { quizOne, quizTwo, quizThree };
+    const selectedQuiz = quizzes[quizChosen];
+
+    if (!selectedQuiz) {
+        window.location = "index.html";
+        return;
+    }
+
+    displayInitialData(selectedQuiz);
 });

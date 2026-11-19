@@ -3,62 +3,30 @@ const weatherApi = {
     baseUrl: "https://api.openweathermap.org/data/2.5/weather"
 }
 
-const loc = document.querySelector('#location');
-const tempC = document.querySelector('.c');
-const tempF = document.querySelector('.f');
-const desc = document.querySelector('.desc');
-
 window.addEventListener('load', () => {
-    let long;
-    let lat;
-    fetch(base)
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            const { temp, feels_like } = data.main;
-            const place = data.name;
-            const { description, icon } = data.weather[0];
+    if (!navigator.geolocation) {
+        return;
+    }
 
-            const fahrenheit = (temp * 9) / 5 + 32;
+    navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        const url = `${weatherApi.baseUrl}?lat=${latitude}&lon=${longitude}&appid=${weatherApi.key}&units=metric`;
 
-            // Interacting with DOM to show data
-            loc.textContent = `${place}`;
-            desc.textContent = `${description}`;
-            tempC.textContent = `${temp.toFixed(2)} °C`;
-            //  tempF.textContent = `${fahrenheit.toFixed(2)} °F`;
-            if (desc.textContent == 'clear') {
-                document.body.style.backgroundImage = "url('Clear1.jpg')";
-            } else if (desc.textContent == 'clouds') {
-                document.body.style.backgroundImage = "url('Cloudy.jpg')";
-            }
-            else if (desc.textContent == 'rain') {
-                document.body.style.backgroundImage = "url('rain.jpg')";
-            }
-            else if (desc.textContent == 'mist') {
-                document.body.style.backgroundImage = "url('rain.jpg')";
-            }
-            else if (desc.textContent == 'haze') {
-                document.body.style.backgroundImage = "url('Cloudy.jpg')";
-            }
-            else if (desc.textContent == 'snow') {
-                document.body.style.backgroundImage = "url('snow.jpg')";
-            }
-            else if (desc.textContent == 'thunderstorm') {
-                document.body.style.backgroundImage = "url('thunder.jpg')";
-            }
-        });
+        fetch(url)
+            .then((response) => response.json())
+            .then(showWeatherReport)
+            .catch((error) => console.error("Unable to load local weather:", error));
+    });
 });
 
 
 const searchInputBox = document.getElementById('input-box');
 
 searchInputBox.addEventListener('keypress', (event) => {
-    if (event.keyCode == 13) {
+    if (event.keyCode === 13) {
 
         console.log(searchInputBox.value);
         getWeatherReport(searchInputBox.value);
-        document.querySelector('.weather-body').style.display = "block";
 
     }
 });
@@ -73,6 +41,8 @@ function getWeatherReport(city) {
 function showWeatherReport(weather) {
     console.log(weather);
 
+    document.querySelector('.weather-body').style.display = "block";
+
     let city = document.getElementById('city');
     city.innerText = `${weather.name},${weather.sys.country}`;
 
@@ -80,7 +50,7 @@ function showWeatherReport(weather) {
     temperature.innerHTML = `${Math.round(weather.main.temp)}&deg;C`;
 
     let minMaxTemp = document.getElementById('min-max');
-    minMaxTemp.innerHTML = `${Math.floor(weather.main.temp_min)}&deg;C (min) / ${Math.ceil(weather.main.temp_min)}&deg;C (max)`;
+    minMaxTemp.innerHTML = `${Math.floor(weather.main.temp_min)}&deg;C (min) / ${Math.ceil(weather.main.temp_max)}&deg;C (max)`;
 
     let WeatherType = document.getElementById('weather');
     WeatherType.innerText = `${weather.weather[0].main}`;
@@ -90,25 +60,25 @@ function showWeatherReport(weather) {
     //console.log(todayDate);
     date.innerText = dateManage(todayDate);
 
-    if (WeatherType.textContent == 'Clear') {
+    if (WeatherType.textContent === 'Clear') {
         document.body.style.backgroundImage = "url('clear1.jpg')"
     }
-    else if (WeatherType.textContent == 'Clouds') {
+    else if (WeatherType.textContent === 'Clouds') {
         document.body.style.backgroundImage = "url('clouds.jpg')"
     }
-    else if (WeatherType.textContent == 'Haze') {
+    else if (WeatherType.textContent === 'Haze') {
         document.body.style.backgroundImage = "url('clouds.jpg')"
     }
-    else if (WeatherType.textContent == 'Rain') {
+    else if (WeatherType.textContent === 'Rain') {
         document.body.style.backgroundImage = "url('rain.jpg')"
     }
-    else if (WeatherType.textContent == 'Snow') {
+    else if (WeatherType.textContent === 'Snow') {
         document.body.style.backgroundImage = "url('snow.jpg')"
     }
-    else if (WeatherType.textContent == 'Thunderstorm') {
+    else if (WeatherType.textContent === 'Thunderstorm') {
         document.body.style.backgroundImage = "url('thunder.jpg')"
     }
-    else if (WeatherType.textContent == 'Sunny') {
+    else if (WeatherType.textContent === 'Sunny') {
         document.body.style.backgroundImage = "url('sunny.jpg')"
     }
 }

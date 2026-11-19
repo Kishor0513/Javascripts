@@ -1,3 +1,4 @@
+/* global $ */
 //will return array of objects
 
 async function getData()
@@ -18,7 +19,6 @@ async function getData()
     }
 }
 $("document").ready(async () => {
-    let dset = document.getElementsByClassName("data");
     let sel = document.querySelector("select");
     sel.innerHTML = "<option>Select Country</option>";
     $("select").css({ color: "#464866", "font-weight": "bolder" });

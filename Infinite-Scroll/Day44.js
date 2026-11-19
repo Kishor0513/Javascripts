@@ -1,3 +1,6 @@
+const items_container = document.getElementById("items_container");
+const loader = document.getElementById("loader");
+
 getPost()
 getPost()
 getPost()
@@ -16,7 +19,7 @@ window.addEventListener("scroll", function () {
 function showLoading() {
     loader.classList.add("show")
     // Wait a second to be able to see the loader image
-    setTimeout(getPost(), 1000)
+    setTimeout(getPost, 1000)
 }
 
 async function getPost() {

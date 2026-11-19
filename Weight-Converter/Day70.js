@@ -1,7 +1,7 @@
 let button = document.getElementById('btn');
 
 button.addEventListener('click', function () {
-    const gram = parseInt(document.getElementById('grams').value);
+    const gram = parseInt(document.getElementById('grams').value, 10);
     const type = document.getElementById('type').value;
 
     if (gram === '' || isNaN(gram)) {

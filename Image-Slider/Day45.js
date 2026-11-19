@@ -1,3 +1,4 @@
+/* global gsap */
 // Slider(all Slides in a container)
 const slider = document.querySelector('.slider');
 // All trails
@@ -15,7 +16,11 @@ const slide = (condition) => {
     // CLear interval
     clearInterval(start);
     // update value and trailValue
-    condition === 'increase' ? initiateINC() : initiateDEC();
+    if (condition === 'increase') {
+        initiateINC();
+    } else {
+        initiateDEC();
+    }
     // move slide
     move(value, trailValue);
     // Restart Animation
@@ -29,7 +34,11 @@ const initiateINC = () => {
     // Remove active from all trails
     trail.forEach((cur) => cur.classList.remove('active'));
     // increase transform value
-    value === 80 ? (value = 0) : (value += 20);
+    if (value === 80) {
+        value = 0;
+    } else {
+        value += 20;
+    }
     // update trailValue based on value
     trailUpdate();
 };
@@ -39,7 +48,11 @@ const initiateDEC = () => {
     // Remove active from all trails
     trail.forEach((cur) => cur.classList.remove('active'));
     // decrease transform value
-    value === 0 ? (value = 80) : (value -= 20);
+    if (value === 0) {
+        value = 80;
+    } else {
+        value -= 20;
+    }
     // update trailValue based on value
     trailUpdate();
 };
@@ -124,7 +137,7 @@ const clickCheck = (e) => {
 trail.forEach((cur) => cur.addEventListener('click', (ev) => clickCheck(ev)));
 
 // Mobile touch Slide Section
-const touchSlide = (() => {
+(() => {
     let start, move, change, sliderWidth;
 
     // Do this on initial touch on screen
@@ -145,11 +158,15 @@ const touchSlide = (() => {
         change = start - move;
     });
 
-    const mobile = (e) => {
-        // if change is greater than a quarter of sliderWidth, next else Do NOTHING
-        change > sliderWidth / 4 ? slide('increase') : null;
-        // if change * -1 is greater than a quarter of sliderWidth, prev else Do NOTHING
-        change * -1 > sliderWidth / 4 ? slide('decrease') : null;
+    const mobile = () => {
+        // if change is greater than a quarter of sliderWidth, next
+        if (change > sliderWidth / 4) {
+            slide('increase');
+        }
+        // if change * -1 is greater than a quarter of sliderWidth, prev
+        if (change * -1 > sliderWidth / 4) {
+            slide('decrease');
+        }
         // reset all variable to 0
         [start, move, change, sliderWidth] = [0, 0, 0, 0];
     };

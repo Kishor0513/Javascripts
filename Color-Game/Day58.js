@@ -1,3 +1,4 @@
+/* exported easy, hard, play, start, checka, checkb, checkc, checkd, checke, checkf */
 var n = Math.floor(Math.random() * 6);
 var m = 5;
 var l;
@@ -40,7 +41,7 @@ function play() {
     var j = Math.floor(Math.random() * n);
     console.log(j);
     for (let i = 0; i < t.length; i++) {
-        if (i != j) {
+        if (i !== j) {
             t[i].style.backgroundColor = "rgb(" + Math.floor((Math.random() * 254) + 1) + "," + Math.floor((Math.random() * 254) + 1) + "," + Math.floor((Math.random() * 254) + 1) + ")";
         }
         else {
@@ -71,11 +72,11 @@ function start() {
     var y = Math.floor((Math.random() * 254) + 1);
     var z = Math.floor((Math.random() * 254) + 1);
     a.innerText = "rgb(" + x + ", " + y + ", " + z + ")";
-    var t = document.getElementsByClassName("on");
+    t = document.getElementsByClassName("on");
     var j = Math.floor(Math.random() * n);
     console.log(j);
     for (let i = 0; i < t.length; i++) {
-        if (i != j) {
+        if (i !== j) {
             t[i].style.backgroundColor = "rgb(" + Math.floor((Math.random() * 254) + 1) + "," + Math.floor((Math.random() * 254) + 1) + "," + Math.floor((Math.random() * 254) + 1) + ")";
         }
         else {
@@ -97,11 +98,11 @@ function checka() {
     var y = a.innerText;
     console.log(x);
     console.log(y);
-    if (m == 0) {
-        if (x == y) {
+    if (m === 0) {
+        if (x === y) {
             document.getElementById("result").innerText = "Correct!";
             //document.querySelectorAll(".row").style.display="flex";
-            var t = document.getElementsByClassName("on");
+            let t = document.getElementsByClassName("on");
             for (let i = 0; i <= l; i++) {
                 t[i].style.visibility = "visible";
                 t[i].style.backgroundColor = y;
@@ -118,7 +119,7 @@ function checka() {
             document.getElementById("result").innerText = "You lost";
         }
     }
-    else if (x != y && m != 0) {
+    else if (x !== y && m !== 0) {
         z.style.visibility = "hidden";
         //z.style.backgroundColor="black";
         //document.getElementById("result").color="red";
@@ -126,7 +127,7 @@ function checka() {
     }
     else {
         //document.querySelectorAll(".row").style.display="flex";
-        var t = document.getElementsByClassName("on");
+        let t = document.getElementsByClassName("on");
         for (let i = 0; i <= l; i++) {
             t[i].style.visibility = "visible";
             t[i].style.backgroundColor = y;
@@ -140,11 +141,11 @@ function checkb() {
     var z = document.getElementById("b");
     var x = z.style.backgroundColor;
     var y = a.innerText;
-    if (m == 0) {
-        if (x == y) {
+    if (m === 0) {
+        if (x === y) {
             document.getElementById("result").innerText = "Correct!";
             //document.querySelectorAll(".row").style.display="flex";
-            var t = document.getElementsByClassName("on");
+            let t = document.getElementsByClassName("on");
             for (let i = 0; i <= l; i++) {
                 t[i].style.visibility = "visible";
                 t[i].style.backgroundColor = y;
@@ -161,7 +162,7 @@ function checkb() {
             document.getElementById("result").innerText = "You lost";
         }
     }
-    else if (x != y && m != 0) {
+    else if (x !== y && m !== 0) {
         z.style.visibility = "hidden";
         //z.style.backgroundColor="black";
         //document.getElementById("result").color="red";
@@ -170,7 +171,7 @@ function checkb() {
     }
     else {
         //document.querySelectorAll(".row").style.display="flex";
-        var t = document.getElementsByClassName("on");
+        let t = document.getElementsByClassName("on");
         for (let i = 0; i <= l; i++) {
             t[i].style.visibility = "visible";
             t[i].style.backgroundColor = y;
@@ -184,9 +185,9 @@ function checkc() {
     var z = document.getElementById("c");
     var x = z.style.backgroundColor;
     var y = a.innerText;
-    if (m == 0) {
-        if (x == y) {
-            var t = document.getElementsByClassName("on");
+    if (m === 0) {
+        if (x === y) {
+            let t = document.getElementsByClassName("on");
             for (let i = 0; i <= l; i++) {
                 t[i].style.visibility = "visible";
                 t[i].style.backgroundColor = y;
@@ -201,14 +202,14 @@ function checkc() {
             document.getElementById("result").innerText = "You lost";
         }
     }
-    else if (x != y && m != 0) {
+    else if (x !== y && m !== 0) {
         z.style.visibility = "hidden";
         //z.style.backgroundColor="black";
         //document.getElementById("result").color="red";
         document.getElementById("result").innerText = "Try Again";
     }
     else {
-        var t = document.getElementsByClassName("on");
+        let t = document.getElementsByClassName("on");
         for (let i = 0; i <= l; i++) {
             t[i].style.visibility = "visible";
             t[i].style.backgroundColor = y;
@@ -222,9 +223,9 @@ function checkd() {
     var z = document.getElementById("d");
     var x = z.style.backgroundColor;
     var y = a.innerText;
-    if (m == 0) {
-        if (x == y) {
-            var t = document.getElementsByClassName("on");
+    if (m === 0) {
+        if (x === y) {
+            let t = document.getElementsByClassName("on");
             for (let i = 0; i <= l; i++) {
                 t[i].style.visibility = "visible";
                 t[i].style.backgroundColor = y;
@@ -239,14 +240,14 @@ function checkd() {
             document.getElementById("result").innerText = "You lost";
         }
     }
-    else if (x != y && m != 0) {
+    else if (x !== y && m !== 0) {
         z.style.visibility = "hidden";
         //z.style.backgroundColor="black";
         //document.getElementById("result").color="red";
         document.getElementById("result").innerText = "Try Again";
     }
     else {
-        var t = document.getElementsByClassName("on");
+        let t = document.getElementsByClassName("on");
         for (let i = 0; i <= l; i++) {
             t[i].style.visibility = "visible";
             t[i].style.backgroundColor = y;
@@ -260,10 +261,10 @@ function checke() {
     var z = document.getElementById("e");
     var x = z.style.backgroundColor;
     var y = a.innerText;
-    if (m == 0) {
-        if (x == y) {
+    if (m === 0) {
+        if (x === y) {
             var t = document.getElementsByClassName("on");
-            for (let i = 0; i <= t.length; i++) {
+            for (let i = 0; i < t.length; i++) {
                 t[i].style.visibility = "visible";
                 t[i].style.backgroundColor = y;
 
@@ -277,14 +278,14 @@ function checke() {
             document.getElementById("result").innerText = "You lost";
         }
     }
-    else if (x != y && m != 0) {
+    else if (x !== y && m !== 0) {
         z.style.visibility = "hidden";
         //z.style.backgroundColor="black";
         //document.getElementById("result").color="red";
         document.getElementById("result").innerText = "Try Again";
     }
     else {
-        var t = document.getElementsByClassName("on");
+        let t = document.getElementsByClassName("on");
         for (let i = 0; i <= l; i++) {
             t[i].style.visibility = "visible";
             t[i].style.backgroundColor = y;
@@ -299,9 +300,9 @@ function checkf() {
     var z = document.getElementById("f");
     var x = z.style.backgroundColor;
     var y = a.innerText;
-    if (m == 0) {
-        if (x == y) {
-            var t = document.getElementsByClassName("on");
+    if (m === 0) {
+        if (x === y) {
+            let t = document.getElementsByClassName("on");
             for (let i = 0; i <= l; i++) {
                 t[i].style.visibility = "visible";
                 t[i].style.backgroundColor = y;
@@ -316,14 +317,14 @@ function checkf() {
             document.getElementById("result").innerText = "You lost";
         }
     }
-    else if (x != y && m != 0) {
+    else if (x !== y && m !== 0) {
         z.style.visibility = "hidden";
         //z.style.backgroundColor="black";
         //document.getElementById("result").color="red";
         document.getElementById("result").innerText = "Try Again";
     }
     else {
-        var t = document.getElementsByClassName("on");
+        let t = document.getElementsByClassName("on");
         for (let i = 0; i <= l; i++) {
             t[i].style.visibility = "visible";
             t[i].style.backgroundColor = y;

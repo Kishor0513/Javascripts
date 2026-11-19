@@ -1,3 +1,4 @@
+/* global QRCode */
 const href="https://github.com/Kishor0513";
 const size=250;
 

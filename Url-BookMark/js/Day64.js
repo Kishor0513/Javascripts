@@ -1,3 +1,4 @@
+/* exported add, del */
 var x = document.getElementById('site_name');
 var num = 0;
 var y = document.getElementById('site_url');
@@ -5,7 +6,7 @@ var p1_in = document.getElementById('p1');
 var p2_in = document.getElementById('p2');
 var count = 0;
 var items = [];
-if (localStorage.getItem('items', items) == null) {
+if (localStorage.getItem('items', items) === null) {
     items = [];
 }
 else {
@@ -15,27 +16,28 @@ else {
 
 // check() returns zero if the user entered a valid input, and the number of invalid inputs otherwise
 function check() {
+    count = 0;
     for (var i = 0; i < items.length; i++) {
-        if (x.value == items[i].name) {
+        if (x.value === items[i].name) {
             p1_in.innerHTML = "This name already exists";
             p1_in.style.display = "block";
             count++;
             break;
         }
     }
-    if (x.value == "") {
+    if (x.value === "") {
         p1_in.innerHTML = "Name is required";
         p1_in.style.display = "block";
         count++;
     }
-    if (y.value == "") {
+    if (y.value === "") {
         p2_in.innerHTML = "Url is required";
         p2_in.style.display = "block";
         count++;
     }
     num = 0;
     for (var c = 0; c < y.value.length; c++) {
-        if (y.value[c] == '.' && y.value.slice(c - 3, 3).toLowerCase() != "www") {
+        if (y.value[c] === '.' && y.value.slice(c - 3, 3).toLowerCase() !== "www") {
             num++;
             console.log(num);
             console.log(y.value.slice(c - 3, 3).toLowerCase());
@@ -52,19 +54,19 @@ function check() {
 
 // add an item to the local storage:
 function add() {
-    if (check() == 0) {
+    if (check() === 0) {
         var item = {
             name: x.value,
             url: y.value
         };
         // add http:// if it doesn't exist
-        if (item.url.slice(0, 4) != "http") {
+        if (item.url.slice(0, 4) !== "http") {
             item.url = "https://" + y.value;
         }
         // add www. if it doesn't exist
         for (var i = 0; i < item.url.length; i++) {
-            if (item.url.slice(0, i + 1) == "https://") {
-                if (item.url[i + 1].toLowerCase() != "w" && item.url[i + 1] != '/') {
+            if (item.url.slice(0, i + 1) === "https://") {
+                if (item.url[i + 1].toLowerCase() !== "w" && item.url[i + 1] !== '/') {
                     item.url = item.url.slice(0, i + 1) + "www." + item.url.slice(i + 1);
                     break;
                 }

@@ -1,3 +1,4 @@
+/* exported setdirection, generate, copy */
 let colorOne=document.getElementById('color_one');
 let colorTwo = document.getElementById('color_two');
 let currentdir = "to top";

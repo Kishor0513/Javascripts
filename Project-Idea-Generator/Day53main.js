@@ -1,3 +1,4 @@
+/* global projects */
 document.getElementById("generate-project").addEventListener("click", function () {
     let project = projects[Math.floor(Math.random() * projects.length)];
     let link = document.getElementById('new-project')

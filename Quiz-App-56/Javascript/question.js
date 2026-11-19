@@ -1,3 +1,4 @@
+/* exported quizOne, quizTwo, quizThree */
 let quizOne = {
     "title": "General quizzes for testing purposes - part 1",
     "data": [

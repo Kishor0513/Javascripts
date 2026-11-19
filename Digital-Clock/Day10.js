@@ -13,7 +13,7 @@ function clock() {
     //Convert 24 hour time to 12 hour format with AM/PM Indicator
     if (h > 12) {
         h = h - 12;
-        var am = 'PM'
+        am = 'PM'
     }
     //Add 0 to the begining of number if less than 10
     h = (h < 10) ? '0' + h : h;
@@ -25,4 +25,4 @@ function clock() {
     seconds.innerHTML = s;
     ampm.innerHTML = am;
 }
-var interval = setInterval(clock, 1000);
+setInterval(clock, 1000);

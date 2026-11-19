@@ -1,3 +1,4 @@
+/* exported startTimer, lapTimer, stopTimer, resetTimer */
 const timer = document.getElementById('stopwatch');
 const lapBox = document.getElementById('lapBox');
 var hr = 0;
@@ -6,29 +7,29 @@ var sec = 0;
 var stoptime = true;
 
 const timerCycle = () => {
-    if (stoptime == false) {
-        sec = parseInt(sec);
-        min = parseInt(min);
-        hr = parseInt(hr);
+    if (stoptime === false) {
+        sec = parseInt(sec, 10);
+        min = parseInt(min, 10);
+        hr = parseInt(hr, 10);
 
         sec = sec + 1;
 
-        if (sec == 60) {
+        if (sec === 60) {
             min = min + 1;
             sec = 0;
         }
-        if (min == 60) {
+        if (min === 60) {
             hr = hr + 1;
             min = 0;
             sec = 0;
         }
-        if (sec < 10 || sec == 0) {
+        if (sec < 10 || sec === 0) {
             sec = '0' + sec;
         }
-        if (min < 10 || min == 0) {
+        if (min < 10 || min === 0) {
             min = '0' + min;
         }
-        if (hr < 10 || hr == 0) {
+        if (hr < 10 || hr === 0) {
             hr = '0' + hr;
         }
         timer.innerHTML = hr + ':' + min + ':' + sec;
@@ -37,7 +38,7 @@ const timerCycle = () => {
 }
 
 function startTimer() {
-    if (stoptime == true) {
+    if (stoptime === true) {
         stoptime = false;
         timerCycle();
     }
@@ -49,7 +50,7 @@ function lapTimer() {
     lapBox.appendChild(lapTime);
 }
 function stopTimer() {
-    if (stoptime == false) {
+    if (stoptime === false) {
         stoptime = true;
         clearInterval();
     }

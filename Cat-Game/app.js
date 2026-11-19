@@ -8,7 +8,7 @@ const tie = document.querySelector(".tie");
 
 hatcheck.addEventListener("change", hatfun);
 function hatfun() {
-    if (hatcheck.checked == true) {
+    if (hatcheck.checked === true) {
         hat.style.bottom = "165px";
     } else {
         hat.style.bottom = "400px";
@@ -17,7 +17,7 @@ function hatfun() {
 
 glassescheck.addEventListener("change", glassesfun);
 function glassesfun() {
-    if (glassescheck.checked == true) {
+    if (glassescheck.checked === true) {
         glasses.style.right = "50%";
     } else {
         glasses.style.right = "-50%";
@@ -25,7 +25,7 @@ function glassesfun() {
 }
 tiecheck.addEventListener("change", tiefun);
 function tiefun() {
-    if (tiecheck.checked == true) {
+    if (tiecheck.checked === true) {
         tie.style.bottom = "10px";
     } else {
         tie.style.bottom = "-80px";

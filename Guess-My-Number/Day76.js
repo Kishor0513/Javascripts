@@ -1,4 +1,4 @@
-`use strict`;
+'use strict';
 let secretNumber = Math.trunc(Math.random() * 28) + 1;
 let highScore = 0;
 let score = 20;

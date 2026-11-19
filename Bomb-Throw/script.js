@@ -1,3 +1,4 @@
+/* global $ */
 /*
     @ cm = computer player
     @ us = User Player

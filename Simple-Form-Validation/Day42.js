@@ -1,12 +1,19 @@
 'use strict'
 
-// We are accessing input elements as global variables by ID
+const username_input = document.getElementById("username_input")
+const email_input = document.getElementById("email_input")
+const password_input = document.getElementById("password_input")
+const confirm_password_input = document.getElementById("confirm_password_input")
+const signup_form = document.getElementById("signup_form")
+
+const MIN_USERNAME_LENGTH = 5
+const MAX_USERNAME_LENGTH = 25
 
 const isBlank = function (value) {
-    return (value.trim()===""?true:false)
+    return value.trim() === ""
 }
-const isBetween = function (length, min = 5, max = 25) {
-    return length < min || length > max ? false : true
+const isBetween = function (length, min = MIN_USERNAME_LENGTH, max = MAX_USERNAME_LENGTH) {
+    return length >= min && length <= max
 }
 const setError = function (input, message) {
     const parentElement = input.parentElement
@@ -44,7 +51,7 @@ const validateUsername = function () {
         setError(username_input, `Username Invalid`);
     }
     else if (!isBetween(username.length)) {
-        setError(username_input, `Username must be between ${min} and ${max} characters.`);
+        setError(username_input, `Username must be between ${MIN_USERNAME_LENGTH} and ${MAX_USERNAME_LENGTH} characters.`);
     } else {
         setSuccess(username_input);
         isInputValid = true;

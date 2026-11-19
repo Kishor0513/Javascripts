@@ -1,3 +1,4 @@
+/* global Prism */
 const submitBtn = document.getElementById("submit-btn");
 const addBtn = document.getElementById("addBtn"); //to add the any number of parameters
 const addMoreParameters = document.getElementById("addMoreParameters");
@@ -11,6 +12,7 @@ const JsonBox = document.getElementById("json-box");
 const requestJsonBox = document.getElementById("requestJsonBox");
 const responseJsonBox = document.getElementById("responseJsonBox");
 const parametersBox = document.getElementById("parameter-box");
+let data;
 //to get the DOM element from the string
 const getElementFromString = (string) => {
     let newDiv = document.createElement("div");
@@ -26,14 +28,14 @@ responseJsonBox.style.display = "none";
 document.querySelector(".url-alert").style.display = "none";
 
 
-customJson.addEventListener("click", (e) => {
+customJson.addEventListener("click", () => {
     parametersBox.style.display = "none";
     requestJsonBox.style.display = "block";
 });
 
 //when the user clicks on Json then hide the custom json section
 
-customParams.addEventListener("click", (e) => {
+customParams.addEventListener("click", () => {
     parametersBox.style.display = "block";
     requestJsonBox.style.display = "none";
 });
@@ -62,7 +64,7 @@ addBtn.addEventListener("click", () => {
             let confirmation = confirm(
                 "Are You Sure You Want To Remove This YES/CANCEL ?"
             );
-            if (confirmation == true) {
+            if (confirmation === true) {
                 e.target.parentElement.parentElement.remove();
             }
         });
@@ -75,7 +77,7 @@ submitBtn.addEventListener("click", () => {
     let url = document.getElementById("url").value;
     let requestType = document.querySelector("input[name='requestType']:checked").value;
     let contentType = document.querySelector("input[name='contentType']:checked").value;
-    if (url =='') {
+    if (url === '') {
         setTimeout(() => {
             document.querySelector(".url-alert").style.display = "none";
         }, 4000);
@@ -86,10 +88,10 @@ submitBtn.addEventListener("click", () => {
     //show the message while fetching the content
     finalResponse.value = `Please Wait We are Doing Your Work... !!`;
     //if the user clicks on the custom parameters then we have to get content of all the parameters
-    if (contentType == 'custom') {
+    if (contentType === 'custom') {
         data = {};
         for (let i = 0; i < numberOfParametersAdded + 1; i++) {
-            if (document.getElementById('paramKey' + (i + 1)) != undefined) {
+            if (document.getElementById('paramKey' + (i + 1)) !== null) {
                 let key = document.getElementById('paramKey' + (i + 1)).value;
                 let value = document.getElementById( 'paramValue' + (i + 1) ).value; 
                 data[key] = value;
@@ -102,7 +104,7 @@ submitBtn.addEventListener("click", () => {
         data = JsonBox.value;
     }
    //now we have to invoke the fetch api if it is GET or POST
-    if (requestType == 'GET') {
+    if (requestType === 'GET') {
         fetch(url, {
             method:'GET',   
         }).then(response => response.text()).then(text => {

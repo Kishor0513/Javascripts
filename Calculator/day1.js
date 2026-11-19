@@ -1,3 +1,4 @@
+/* exported add, sub, mul, div, mod */
 function add() {
     var a,b,c;
     a = Number(document.getElementById("fnumber").value);

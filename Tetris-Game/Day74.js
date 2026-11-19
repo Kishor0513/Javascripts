@@ -82,13 +82,13 @@ function movedown() {
     erase()
     currentposition += width;
     draw()
-    stop()
+    freezeShape()
 }
 var timer = setInterval(movedown, 1000)
 
 //stoping the shapes
 
-function stop() {
+function freezeShape() {
     if (currentshape.some(index => squares[currentposition + index + width].classList.contains('freeze'))) {
         currentshape.forEach(index => squares[currentposition + index].classList.add('freeze'))
 

@@ -60,7 +60,7 @@ function loadQuiz() {
 }
 
 function getSelected() {
-    let answer = undefined;
+    let answer;
 
     answerEls.forEach((answerEl) => {
         if (answerEl.checked) {

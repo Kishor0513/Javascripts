@@ -1,5 +1,6 @@
 const cat_result = document.getElementById("gallery");
 const errorData = document.getElementById("errorBox");
+const btn_generate = document.getElementById("btn_generate");
 
 
 btn_generate.addEventListener("click", function () {
@@ -10,11 +11,11 @@ btn_generate.addEventListener("click", function () {
     if (!nums.match(/^[0-9]+$/)) {
         return errorData.innerHTML = "Enter a valid number";
     }
-    if (parseInt(nums) > 100) {
+    if (parseInt(nums, 10) > 100) {
         return errorData.innerHTML = "Number should be less than or equal to 100";
     }
 
-    allimages = "";
+    let allimages = "";
     fetch(
         `https://api.thecatapi.com/v1/images/search?limit=${nums}&page=10&order=Desc`
     )

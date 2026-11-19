@@ -1,3 +1,4 @@
+/* global $ */
 (function () {
 
 
@@ -15,7 +16,7 @@
             time = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
             day = date.getDay(),
             month = date.getMonth(),
-            date = date.getDate() + ' . ' + months[month],
+            dateLabel = date.getDate() + ' . ' + months[month],
 
             ds = second * -6,
             dm = minute * -6,
@@ -27,7 +28,7 @@
 
         $('.time').text(time);
         $('.day').text(days[day]);
-        $('.date').text(date)
+        $('.date').text(dateLabel)
     }
 
     function dailer(selector, size) {

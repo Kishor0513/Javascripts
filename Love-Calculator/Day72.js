@@ -1,3 +1,4 @@
+/* exported love */
 function love() {
     var name1 = document.getElementById("NameOne").value;
     var name2 = document.getElementById("NameTwo").value;

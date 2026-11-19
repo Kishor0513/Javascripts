@@ -1,3 +1,4 @@
+/* global Sketch */
 var i = 0;
 
 function random( min, max ) {

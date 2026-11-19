@@ -1,6 +1,6 @@
 // generate random number 
-let firstNumber = parseInt(Math.random() * 10);
-let secondNumber = parseInt(Math.random() * 10);
+let firstNumber = parseInt(Math.random() * 10, 10);
+let secondNumber = parseInt(Math.random() * 10, 10);
 
 //get the total
 let total = firstNumber + secondNumber;

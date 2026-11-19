@@ -4,8 +4,6 @@
 
         init: function () {
             this.c = document.getElementById("game");
-            this.c.width = this.c.width;
-            this.c.height = this.c.height;
             this.ctx = this.c.getContext("2d");
             this.color = "rgba(20,20,20,.7)";
             this.bullets = [];
@@ -182,7 +180,7 @@
                     Game.player.draw();
                 }
 
-                for (var i in Game.particles) {
+                for (let i in Game.particles) {
                     Game.particles[i].draw();
                 }
                 Game.player.update();

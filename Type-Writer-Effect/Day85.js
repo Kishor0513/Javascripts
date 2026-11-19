@@ -1,5 +1,5 @@
+/* exported typewrite */
 var mydiv = document.getElementById("mydiv");
-var mybutton = document.getElementById("mybutton");
 
 const typewrite = () => {
     var text = document.getElementById("inputText").value;

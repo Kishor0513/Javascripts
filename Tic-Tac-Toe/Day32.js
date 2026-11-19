@@ -1,10 +1,10 @@
+/* global $ */
 var modal = document.getElementById('myModal');
 var grid = new Array(3);
 grid[0] = new Array(3);
 grid[1] = new Array(3);
 grid[2] = new Array(3);
 var player = 0;
-var gameWon = 0;
 var numberMap = new Map();
 
 //Helper function to fill Map data structure
@@ -40,19 +40,19 @@ function handleSquareClick(squareVal) {
     let x, y, squareNumber;
     squareNumber = numberMap.get(squareVal);
     [x, y] = evaluateMapping(squareNumber);
-    if (checkLegalMove(x, y) == true) {
-        if (player == 0) {
+    if (checkLegalMove(x, y)) {
+        if (player === 0) {
             console.log('X turn');
             $(`#square_${squareVal}_text`).html("X");
             grid[x][y] = 'X';
-            if (checkWin(1) == true) {
+            if (checkWin()) {
                 endgame(1);
             }
         } else {
             console.log('0 turn ');
             $(`#square_${squareVal}_text`).html("O");
             grid[x][y] = 'O';
-            if (checkWin(2) == true) {
+            if (checkWin()) {
                 endgame(2);
             }
         }
@@ -71,43 +71,39 @@ $("#square_seven").click(function () { handleSquareClick("seven") });
 $("#square_eight").click(function () { handleSquareClick("eight") });
 $("#square_nine").click(function () { handleSquareClick("nine") });
 
-function checkWin(playerNum) {
+function checkWin() {
     //check horizontal
-    for (i = 0; i < 3; i++) {
-        if ((grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2]) && grid[i][0] != undefined && grid[i][1] != undefined && grid[i][2] != undefined) {
+    for (let i = 0; i < 3; i++) {
+        if ((grid[i][0] === grid[i][1] && grid[i][1] === grid[i][2]) && grid[i][0] !== undefined && grid[i][1] !== undefined && grid[i][2] !== undefined) {
             console.log("horizontal won");
             return true;
         }
     }
 
     //check vertical
-    for (i = 0; i < 3; i++) {
-        console.log("i is: " + i);
-        console.log("grid[" + i + "][0] is " + grid[i][0]);
-        console.log("grid[" + i + "][1] is " + grid[i][1]);
-        console.log("grid[" + i + "][2] is " + grid[i][2]);
-        if ((grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i]) && grid[0][i] != undefined && grid[1][i] != undefined && grid[2][i] != undefined) {
+    for (let i = 0; i < 3; i++) {
+        if ((grid[0][i] === grid[1][i] && grid[1][i] === grid[2][i]) && grid[0][i] !== undefined && grid[1][i] !== undefined && grid[2][i] !== undefined) {
             console.log("vertical won");
             return true;
         }
     }
 
     //check diagonal
-    if (((grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2]) || (grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0])) && grid[1][1] !== undefined) {
+    if (((grid[0][0] === grid[1][1] && grid[1][1] === grid[2][2]) || (grid[0][2] === grid[1][1] && grid[1][1] === grid[2][0])) && grid[1][1] !== undefined) {
         console.log("diagonal won");
         return true;
     }
 
-    var tieGame = true;
-    for (var i = 0; i < 3; i++) {
-        for (var x = 0; x < 3; x++) {
-            if (grid[i][x] == null && grid[i][x] == undefined) {
+    let tieGame = true;
+    for (let i = 0; i < 3; i++) {
+        for (let x = 0; x < 3; x++) {
+            if (grid[i][x] === undefined) {
                 tieGame = false;
             }
         }
     }
 
-    if (tieGame == true) {
+    if (tieGame) {
         endgame(0);
     }
 
@@ -124,15 +120,15 @@ function checkLegalMove(row, column) {
 }
 
 function endgame(num) {
-    if (num == 0) {
+    if (num === 0) {
         $(".modal_text").html("Tie game!");
         $("#myModal").css("display", "block");
     }
-    if (num == 1) {
+    if (num === 1) {
         $(".modal_text").html("Player X Wins!");
         $("#myModal").css("display", "block");
     }
-    if (num == 2) {
+    if (num === 2) {
         $(".modal_text").html("Player O Wins!");
         $("#myModal").css("display", "block");
     }
@@ -146,7 +142,6 @@ $("#restartBtn").click(function () {
     grid[1] = new Array(3);
     grid[2] = new Array(3);
     player = 0;
-    gameWon = 0;
     $("#square_one_text").html("");
     $("#square_two_text").html("");
     $("#square_three_text").html("");

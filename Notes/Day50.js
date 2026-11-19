@@ -1,3 +1,4 @@
+/* exported delNote */
 var clickBot = document.getElementById("add");
 
 // var noteindex=0;
@@ -6,7 +7,7 @@ clickBot.addEventListener("click", function () {
     var noteArea = document.getElementById("notesArea");
     var title = document.getElementById("inpTitle");
     var note = document.getElementById("inpContent");
-    if (!((title.value == null || title.value == "") || (note.value == null || note.value == ""))) {
+    if (!((title.value === null || title.value === "") || (note.value === null || note.value === ""))) {
 
 
         var newNote = document.createElement("div");

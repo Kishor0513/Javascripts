@@ -1,3 +1,4 @@
+/* global Hangman, getPuzzle */
 let game1
 const puzzleDIV = document.querySelector('#puzzle');
 const remainingDIV = document.querySelector('#guesses');

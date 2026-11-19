@@ -53,14 +53,14 @@ function addNote() {
 
 function updateNote(id, newContent) {
     const notes = getNotes();
-    const target = notes.filter(note => note.id == id)[0];
+    const target = notes.filter(note => note.id === id)[0];
 
     target.content = newContent;
     saveNotes(notes);
 }
 
 function deleteNote(id, element) {
-    const notes = getNotes().filter(note => note.id != id);
+    const notes = getNotes().filter(note => note.id !== id);
 
     saveNotes(notes);
     notesContainer.removeChild(element);

@@ -18,32 +18,26 @@ libraryForm.addEventListener('submit', (e) => {
 
     if (fiction.checked) {
         type = fiction.value;
-        programming.unchecked;
-        science.unchecked;
     }
     else if (programming.checked) {
         type = programming.value;
-        science.unchecked;
-        fiction.unchecked;
     }
     else if (science.checked) {
         type = science.value;
-        fiction.unchecked;
-        programming.unchecked;
     }
 
 
     let shelf = localStorage.getItem('shelfOfBooks');
     let objOfBook; //object which stores books
 
-    if (shelf == null) {
+    if (shelf === null) {
         objOfBook = [];
     }
     else {                                //We might have multiple books 
         objOfBook = JSON.parse(shelf);   //By using JSON we convert it into Object
     }
 
-    if (name == "") {
+    if (name === "") {
         errorMessage();
     }
     else {
@@ -58,9 +52,11 @@ libraryForm.addEventListener('submit', (e) => {
 
     localStorage.setItem('shelfOfBooks', JSON.stringify(objOfBook));
 
-    name = "";
-    author = "";
-    type.value = "";
+    document.getElementById("bookName").value = "";
+    document.getElementById("author").value = "";
+    fiction.checked = false;
+    programming.checked = false;
+    science.checked = false;
 
     displayNotes();
 })
@@ -71,7 +67,7 @@ function displayNotes() {
     let books = localStorage.getItem('shelfOfBooks');
     let objOfBook;
 
-    if (books == null) {
+    if (books === null) {
         objOfBook = [];
     }
     else {
@@ -95,7 +91,7 @@ function displayNotes() {
 
     let table = document.getElementById('tableBody');
 
-    if (objOfBook.length != 0) {
+    if (objOfBook.length !== 0) {
         table.innerHTML = html;
     }
     else {

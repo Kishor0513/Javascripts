@@ -1,3 +1,4 @@
+/* exported searchWeeb */
 // Variable to store if the current search need anime or manga
 var nameType = "Manga";
 const api = "https://api.jikan.moe/v4/"

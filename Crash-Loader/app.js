@@ -1,5 +1,6 @@
+/* global TimelineMax, TweenMax, Sine, Power2, Quint, Back */
 var path = document.querySelector("path");
-var length = path.getTotalLength();
+var pathLength = path.getTotalLength();
 // create timeline
 var timeline = new TimelineMax({
     repeat: -1,
@@ -53,7 +54,7 @@ timeline.staggerTo("polygon", .5, {
 // remove path
 timeline.to(path, 2, {
     attr: {
-        "stroke-dashoffset": -length
+        "stroke-dashoffset": -pathLength
     },
     autoAlpha: 0,
     ease: Quint.easeInOut
